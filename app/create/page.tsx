@@ -17,7 +17,8 @@ export default function CreatePage() {
   const [expirationMinutes, setExpirationMinutes] = useState<2 | 5>(2)
   const [loading, setLoading] = useState(false)
   const [createdLink, setCreatedLink] = useState<{ url: string; password: string } | null>(null)
-  const [copied, setCopied] = useState(false)
+  const [copiedLink, setCopiedLink] = useState(false)
+  const [copiedPassword, setCopiedPassword] = useState(false)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -66,11 +67,16 @@ export default function CreatePage() {
     }
   }
 
-  const copyToClipboard = async (text: string) => {
+  const copyToClipboard = async (text: string, type: 'link' | 'password') => {
     try {
       await navigator.clipboard.writeText(text)
-      setCopied(true)
-      setTimeout(() => setCopied(false), 2000)
+      if (type === 'link') {
+        setCopiedLink(true)
+        setTimeout(() => setCopiedLink(false), 2000)
+      } else {
+        setCopiedPassword(true)
+        setTimeout(() => setCopiedPassword(false), 2000)
+      }
     } catch (error) {
       console.error('Failed to copy:', error)
     }
@@ -180,9 +186,9 @@ export default function CreatePage() {
                   type="button"
                   variant="outline"
                   size="icon"
-                  onClick={() => copyToClipboard(createdLink.url)}
+                  onClick={() => copyToClipboard(createdLink.url, 'link')}
                 >
-                  {copied ? (
+                  {copiedLink ? (
                     <Check className="size-4" />
                   ) : (
                     <Copy className="size-4" />
@@ -205,9 +211,9 @@ export default function CreatePage() {
                   type="button"
                   variant="outline"
                   size="icon"
-                  onClick={() => copyToClipboard(createdLink.password)}
+                  onClick={() => copyToClipboard(createdLink.password, 'password')}
                 >
-                  {copied ? (
+                  {copiedPassword ? (
                     <Check className="size-4" />
                   ) : (
                     <Copy className="size-4" />
