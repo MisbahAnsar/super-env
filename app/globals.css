@@ -125,6 +125,19 @@
   }
 }
 
+/* Custom text selection color */
+::selection {
+  background-color: #076f64;
+  color: #fff;
+}
+
+/* Preserve default selection color for logo */
+.logo-default-select::selection,
+.logo-default-select *::selection {
+  background-color: Highlight;
+  color: HighlightText;
+}
+
 /* Add dither effect patterns and custom animations */
 @keyframes dither-flicker {
   0%, 100% { opacity: 1; }
