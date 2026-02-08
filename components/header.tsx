@@ -30,7 +30,7 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 py-3">
         <div className="flex items-center justify-between h-14">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
+          <Link href="/" className="flex items-center gap-2 logo-default-select">
             <div className="w-6 h-6 bg-foreground dither-pattern flex items-center justify-center text-2xl text-background font-mono font-bold">
               ◆
             </div>
