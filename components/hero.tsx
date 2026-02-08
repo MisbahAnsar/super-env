@@ -80,7 +80,7 @@ export default function Hero() {
         <div className="flex-1 relative">
           <div className="bg-foreground/95 text-background p-3 font-mono text-xs leading-6 overflow-hidden dither-pattern scan-lines min-h-64">
             <div className="text-green-400/70 font-bold mb-2">&gt; super-env v1.0.0</div>
-            <div className="text-foreground/50 mb-3">{"[ACTIVE] Generating secure link..."}</div>
+            <div className="text-white/70 mb-3">{"[ACTIVE] Generating secure link..."}</div>
             <code className="whitespace-pre-wrap break-words text-green-400/60">
               {displayCode}
               <span className="animate-pulse">_</span>
